@@ -5,7 +5,8 @@ from .models import (
 )
 
 class ArtistSerializer(serializers.ModelSerializer):
-    class Meta:
+ 
+   class Meta:
         model = Artist
         fields = ['id', 'name', 'bio', 'image', 'created_at']
         read_only_fields = ['id', 'created_at']

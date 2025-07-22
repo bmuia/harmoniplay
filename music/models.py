@@ -28,13 +28,15 @@ class Song(models.Model):
     release_date = models.DateField(null=True, blank=True)
     
     artist = models.ForeignKey(Artist, on_delete=models.SET_NULL, null=True, related_name='songs')
-    genre = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True, related_name='songs')
+    genres = models.ManyToManyField(Genre, related_name='songs') 
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.title
+    
+
 
 class Album(models.Model):
     title = models.CharField(max_length=200)
