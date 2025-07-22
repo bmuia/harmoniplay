@@ -24,7 +24,7 @@ class SongSerializer(serializers.ModelSerializer):
         model = Song
         fields = [
             'id', 'title', 'description', 'audio', 'cover_image',
-            'duration', 'release_date', 'artist', 'genre',
+            'duration', 'release_date', 'artist', 'genres',
             'created_at', 'updated_at'
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']

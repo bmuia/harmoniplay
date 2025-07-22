@@ -3,9 +3,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import (
-    Genre, Song, Album, Playlist, Like, Comment, Favorite, RecentlyPlayed
+    Genre, Song, Album, Playlist, Like, Comment, Favorite, RecentlyPlayed, Artist
 )
 from .serializers import (
+    ArtistSerializer,
     GenreSerializer,
     SongSerializer,
     AlbumSerializer,
@@ -16,7 +17,16 @@ from .serializers import (
     RecentlyPlayedSerializer,
 )
 
+# Artist Views
+class ArtistCreateView(generics.CreateAPIView):
+    permission_classes = [IsAdminUser]
+    queryset = Genre.objects.all()
+    serializer_class = ArtistSerializer
 
+class ArtistListView(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Artist.objects.all()
+    serializer_class = ArtistSerializer
 # Genre Views
 class GenreCreateView(generics.CreateAPIView):
     permission_classes = [IsAdminUser]

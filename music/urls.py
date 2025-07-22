@@ -8,10 +8,13 @@ from .views import (
     CommentCreateView, CommentListView,
     FavoriteCreateView,
     RecentlyPlayedListView,
-    SongDetailView
+    SongDetailView,
+    ArtistCreateView, ArtistListView
 )
 
 urlpatterns = [
+    path('artists/', ArtistListView.as_view(), name='artist-list'),
+    path('artists/create/', ArtistCreateView.as_view(), name='artist-create'),
     # Genre
     path('genres/', GenreListView.as_view(), name='genre-list'),
     path('genres/create/', GenreCreateView.as_view(), name='genre-create'),
