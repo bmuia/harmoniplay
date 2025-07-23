@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'music',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -172,3 +173,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Basic': {
+            'type': 'basic'
+        }
+    }
+}

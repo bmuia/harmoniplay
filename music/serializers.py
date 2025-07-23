@@ -43,21 +43,21 @@ class AlbumSerializer(serializers.ModelSerializer):
 class PlaylistSerializer(serializers.ModelSerializer):  # Fixed spelling
     class Meta:
         model = Playlist
-        fields = ['id', 'title', 'description', 'user', 'songs', 'created_at']
+        fields = ['id', 'title', 'description', 'songs', 'created_at']
         read_only_fields = ['id', 'created_at']
 
 
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = ['id', 'user', 'song', 'liked_at'] 
+        fields = ['id', 'song', 'liked_at'] 
         read_only_fields = ['id', 'liked_at']
 
 
 class CommentSerializer(serializers.ModelSerializer):  
     class Meta:
         model = Comment
-        fields = ['id', 'user', 'song', 'text', 'commented_at']
+        fields = ['id', 'song', 'text', 'commented_at']
         read_only_fields = ['id', 'commented_at']
 
 
